@@ -5,7 +5,7 @@
 
 ### OBJECTIVE: Migrating your existing bitbucket repo to GitHub repo, synchronizing them in such a way that when ever a change is made in the source repository (Bitbucket) the same change will be replicated in GitHub without any manual intervention.
 
-## 1. Setting up Bitbucket and GitHub
+## Setting up Bitbucket and GitHub
   - On your Bitbucket, create a new repository. 
       Navigate to your Bitbucket repository and Create an access token under Repository settings > Security > Access   tokens.
       Create Repository Access Token with selecting all the "READ" Permissions.    
@@ -105,7 +105,7 @@ GitHub repository name: ![image](https://github.com/user-attachments/assets/6da1
 
 ![image](https://github.com/user-attachments/assets/43f9beec-b59e-4e30-805a-e19a64470b7c)
 
-Now check your GitHub repository and see that the bitbucket-pipelines.yml was automatically added!
+## Now check your GitHub repository and see that the bitbucket-pipelines.yml was automatically added!
 
 ![image](https://github.com/user-attachments/assets/8a498d1b-01c8-4c7e-8594-db7937ccdfd1)
 
