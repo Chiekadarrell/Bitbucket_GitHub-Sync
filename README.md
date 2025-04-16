@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/2f396dc4-340e-49fb-b764-3de9c9b66184)# Bitbucket to GitHub Repository Synchronization
+# Bitbucket to GitHub Repository Synchronization
 
 ![WhatsApp Image 2025-04-16 at 04 35 29_b29e7417](https://github.com/user-attachments/assets/c987d035-ae0c-4a5b-b7fd-186e591556af)
 
