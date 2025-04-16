@@ -5,14 +5,12 @@
 
 ### OBJECTIVE: Migrating your existing bitbucket repo to GitHub repo, synchronizing them in such a way that when ever a change is made in the source repository (Bitbucket) the same change will be replicated in GitHub without any manual intervention.
 
-#1. On GitHub, create a new repository
+## 1. Setting up Bitbucket and GitHub
   - On your Bitbucket, create a new repository. 
       Navigate to your Bitbucket repository and Create an access token under Repository settings > Security > Access   tokens.
       Create Repository Access Token with selecting all the "READ" Permissions.    
       Make sure to save it somewhere because you can view it just once.
-       Copy the last Access token Example.
-    
-     { "https://x-token-auth:ATCTT3xFfGN0TSG5xC5PMZex1aEWC2wMY7j1SiYTwLpR7WTpHQ4DJ1oRfevWbd-        LVn9bRzmr3csDN4DEjT57KYlsxWcKXnk5zW17DLJ9ssRcOFFwegxzPTMS-MAfumre3yDmXup-z1nHb8XSRGI9N_McR6FRyHArzIoPIWiJSk6cQfYqfAkIw_w=65FC4ty63@bitbucket.org/demo-migration12/solstice_demo.git" }
+       Copy the last Access token
     
     ![image](https://github.com/user-attachments/assets/ea78ac0d-ff84-4721-b7fc-053baf90474c)
 
@@ -39,7 +37,7 @@
 
     ![image](https://github.com/user-attachments/assets/1f251d7c-13c8-47f2-ba2d-99b99203bd34)
 
-  - Copy the first Token Example { "ATCTT3xFfGN0-Ndb4TYH3QnfpETX- ZlTeINE95Rp05GA3mbBTgyzJ0wzlExMu7zV_unwP6lrDlcX72_vEXtd7OLwmCpzMjgG2_XkPo6bBXjBw_Na9IMyc4j6xEBcLa7u9nd9DHoxI9SZMDVXRoV6WqE3J-dUBTM1WrKjctoQ0WafCzgc1RJkg9Q=0F9CB33A" }
+  - Copy the first Token
     
    ![image](https://github.com/user-attachments/assets/9b92c3d8-cedb-4b98-9e80-2ded6d3d9906)
 
@@ -70,7 +68,7 @@
     ![image](https://github.com/user-attachments/assets/1d593157-6f11-4fee-b420-530d43563b64)
 
 
-# Inside the Bitbucket repo, create a bitbucket-pipelines.yml file
+## Creating a bitbucket-pipelines.yml file
 
 ![image](https://github.com/user-attachments/assets/7e4d2ec0-7868-4dee-9458-26c53c574c39)
 
@@ -102,9 +100,12 @@ GitHub repository name: ![image](https://github.com/user-attachments/assets/6da1
 ![image](https://github.com/user-attachments/assets/b5dd5073-f17c-48c2-bee2-bfe626463d79)
 
 
-# Run the pipeline in Bitbucket
+## Running the pipeline in Bitbucket
 
 
 ![image](https://github.com/user-attachments/assets/43f9beec-b59e-4e30-805a-e19a64470b7c)
 
 Now check your GitHub repository and see that the bitbucket-pipelines.yml was automatically added!
+
+![image](https://github.com/user-attachments/assets/8a498d1b-01c8-4c7e-8594-db7937ccdfd1)
+
