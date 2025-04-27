@@ -80,17 +80,17 @@
 Paste the following:
 
 ```
-  pipelines:
-    default:
-      - step:
-          name: Sync GitHub Mirror
-          image: alpine/git:latest
-          clone:
-            enabled: false
-          script:
-            - git clone --mirror https://x-token-auth:"$BITBUCKET_VARIABLE"@bitbucket.org/solavisetech_internship/bitbucket-github_sync.git ## @bitbucket.org follow by your Bitbucket repository path
-            - cd bitbucket-gitHub_sync.git ## cd followed by your Github repository Name
-            - git push --mirror https://x-token-auth:"$GITHUB_VARIABLE"@github.com/asaphdanchi/Mirroring-Repo.git ## @github.com followed by your Github repository path
+ pipelines:
+  default:
+    - step:
+        name: Bitbucket GitHub Sync
+        image: alpine/git:latest
+        clone:
+          enabled: false
+        script:
+          - git clone --mirror https://x-token-auth:$BITBUCKET_VARIABLE@bitbucket.org/solavisetech_internship/bitbucket-github_sync.git
+          - cd bitbucket-github_sync.git
+          - git push --mirror https://x-token-auth:$GITHUB_VARIABLE@github.com/Chiekadarrell/bitbucket-github_sync.git
 ```
 
 - On your code, replace $BITBUCKET_VARIABLE and $GITHUB_VARIABLE with your own variable names, but keep the $ and the double quotes (") (Remember we created 
