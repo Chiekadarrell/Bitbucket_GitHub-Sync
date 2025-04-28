@@ -138,58 +138,56 @@ But since we’re doing a manual clone (next step), we disable this to avoid con
 
 7. script: (The Actual Commands to Run)
 This is where the real work happens. The script contains 3 Git commands:
+
 Command 1: git clone --mirror (Copy Entire Bitbucket Repo)
-bash
-git clone --mirror https://x-token-auth:"$BITBUCKET_VARIABLE"@bitbucket.org/your-bitbucket-repo.git
+- git clone --mirror https://x-token-auth:"$BITBUCKET_VARIABLE"@bitbucket.org/your-bitbucket-repo.git
 
 What it does:
-git clone = Copies a repository.
---mirror = Copies everything (branches, tags, history, settings).
-x-token-auth:"$BITBUCKET_VARIABLE" = Uses the access token (password) we stored earlier.
-
-@bitbucket.org/your-bitbucket-repo.git = The source repo (Bitbucket).
+- git clone = Copies a repository.
+- --mirror = Copies everything (branches, tags, history, settings).
+- x-token-auth:"$BITBUCKET_VARIABLE" = Uses the access token (password) we stored earlier.
+- @bitbucket.org/your-bitbucket-repo.git = The source repo (Bitbucket).
+  
 Why --mirror?
-Normal clone only copies the latest code.
---mirror copies everything, making it an exact duplicate.
+- Normal clone only copies the latest code.
+- --mirror copies everything, making it an exact duplicate.
+  
 Command 2: cd (Move into the Cloned Folder)
-bash
 
-cd your-bitbucket-repo.git
+- cd your-bitbucket-repo.git
 What it does:
-cd = "Change directory" (like opening a folder).
-Moves into the cloned repo so we can work on it.
-Command 3: git push --mirror (Push to GitHub)
-bash
-git push --mirror https://x-token-auth:"$GITHUB_VARIABLE"@github.com/your-github-repo.git
+
+- cd = "Change directory" (like opening a folder): Moves into the cloned repo so we can work on it.
+  
+- Command 3: git push --mirror (Push to GitHub): git push --mirror https://x-token-auth:"$GITHUB_VARIABLE"@github.com/your-github-repo.git
+  
 What it does:
-git push = Sends changes to another repository.
---mirror = Pushes everything (same as clone --mirror).
-x-token-auth:"$GITHUB_VARIABLE" = Uses the GitHub access token we stored.
-@github.com/your-github-repo.git = The destination repo (GitHub).
-Why --mirror again?
-Ensures all branches, tags, and history are copied, not just the main code.
-How This Works in Practice
-You push code to Bitbucket (e.g., update a file).
-Bitbucket Pipeline triggers automatically.
-The script runs:
-Clones the full repo from Bitbucket.
-Pushes the full repo to GitHub.
-GitHub now has the exact same code as Bitbucket!
-Key Takeaways
-The bitbucket-pipelines.yml file is like a set of instructions for automation.
-It uses Git commands (clone, push) to copy data.
---mirror ensures everything is copied, not just the latest files.
-Access tokens
-($BITBUCKET_VARIABLE, $GITHUB_VARIABLE) keep the process secure.
-Now, every change in Bitbucket will auto-sync to GitHub! 🔄🚀
+- git push = Sends changes to another repository.
+- --mirror = Pushes everything (same as clone --mirror).
+- x-token-auth:"$GITHUB_VARIABLE" = Uses the GitHub access token we stored.
+- @github.com/your-github-repo.git = The destination repo (GitHub).
+  
+
+#### How This Works in Practice
+- You push code to Bitbucket (e.g., update a file).
+- Bitbucket Pipeline triggers automatically.
+- The script runs:
+      - Clones the full repo from Bitbucket.
+      - Pushes the full repo to GitHub.
+      - GitHub now has the exact same code as Bitbucket!
+  
+#### Key Takeaways
+- The bitbucket-pipelines.yml file is like a set of instructions for automation.
+- It uses Git commands (clone, push) to copy data.
+- --mirror ensures everything is copied, not just the latest files.
+- Access tokens: ($BITBUCKET_VARIABLE, $GITHUB_VARIABLE) keep the process secure.
 
 
-12. Run the Pipeline (Start the Sync)
-Why?
-To test if everything works.
+### 12. Run the Pipeline (Start the Sync)
 
-How?
-Commit the bitbucket-pipelines.yml file.
+Why?: To test if everything works.
+
+How?: Commit the bitbucket-pipelines.yml file.
 Bitbucket will automatically run the pipeline.
 
 ![image](https://github.com/user-attachments/assets/a41eb764-025f-4b76-a914-e59e06b8dfda)
@@ -200,14 +198,13 @@ Check GitHub—your files should now be there!
 ![image](https://github.com/user-attachments/assets/1e02d895-422c-4d32-a812-1581d90cdbd6)
 
 
-Final Result: Automatic Sync!
+### Final Result: Automatic Sync! 🎊
 Also, I created a simple text.txt file in bitbucket to see if it will be automatically replicated into my GitHub repo and it worked!
 Now, any change in Bitbucket (new files, updates, deletions) will instantly copy to GitHub. No manual work needed!
 
 Summary:
-Bitbucket = Source (original files).
-GitHub = Destination (copied files).
-Access Tokens = Special passwords for secure access.
-Pipeline = Robot that copies files automatically.
-SSH Keys = Secure tunnel for safe transfer.
-Now your repositories are perfectly synced! 🎉
+- Bitbucket = Source (original files).
+- GitHub = Destination (copied files).
+- Access Tokens = Special passwords for secure access.
+- Pipeline = Robot that copies files automatically.
+- SSH Keys = Secure tunnel for safe transfer.
